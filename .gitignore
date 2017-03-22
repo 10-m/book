@@ -1,0 +1,9 @@
+*~
+*.DS_Store
+*.idea
+*.secret
+*.tmp
+*.temp
+tmp/
+learn_git/math.git/
+old/
