@@ -7,3 +7,6 @@
 tmp/
 learn_git/math.git/
 old/
+Rplots.pdf
+.RData
+.Rhistory
