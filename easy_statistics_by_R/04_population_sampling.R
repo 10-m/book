@@ -32,3 +32,37 @@ print(table(error_under_5))
 
 hist(samples_mean, freq = FALSE)
 curve(dnorm(x, mean = 50, sd = sqrt(10)), add = TRUE)
+
+sample_variance <- numeric(length=10000)
+unbiased_variance <- numeric(length=10000)
+
+for (i in 1:10000) {
+    sample <- rnorm(n = 10, mean = 50, sd = 10) #exact 10 from N(50,10^2)
+    sample_variance[i] <- mean((sample - mean(sample))^2)
+    unbiased_variance[i] <- var(sample)
+}
+print(mean(sample_variance))
+print(mean(unbiased_variance))
+
+print(sd(sample_variance))
+print(sd(unbiased_variance))
+
+sample_variance_over100 <- ifelse(sample_variance > 200, 1, 0)
+table(sample_variance_over100)
+
+unbiased_variance_over100 <- ifelse(unbiased_variance > 200, 1, 0)
+table(unbiased_variance_over100)
+
+sample_mean <- numeric(length = 10000)
+sample_median <- numeric(length = 10000)
+
+for (i in 1:10000) {
+    sample <- rnorm(n = 10, mean = 50, sd = 10)
+    sample_mean[i] <- mean(sample)
+    sample_median[i] <- median(sample)
+}
+mean(sample_mean)
+mean(sample_median)
+
+sd(sample_mean)
+sd(sample_median)
